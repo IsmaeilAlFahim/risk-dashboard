@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  tailwind.config.js includes:
+  primary: {
+    DEFAULT: '#B41F2B',
+    dark: '#931A23',
+    light: '#CC2E38',
+  },
+  secondary: {
+    DEFAULT: '#2B2B2B',
+    light: '#3C3C3C',
+  },
+  neutralBg: '#F7F7F7',
+*/
+
+/* =========================================================
+   Global & Base Styles
+   ========================================================= */
+body {
+  /* Use neutral background and your secondary color for text (instead of default gray-900) */
+  @apply bg-neutralBg text-secondary font-sans antialiased;
+  font-family: "Poppins", sans-serif;
+  padding-top: 80px; /* ensure content is not hidden behind the fixed Navbar */
+}
+
+.App {
+  /* Keep the app background consistent with your neutral background */
+  @apply text-center bg-neutralBg min-h-screen flex flex-col;
+}
+
+/* Use only if you want the spinning logo in App.jsx */
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  animation: App-logo-spin infinite 20s linear;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   Typography
+   ========================================================= */
+/* If you prefer headings to be your brand color, you could use text-primary
+   If you'd rather keep them dark for contrast, text-secondary is fine. 
+   Currently, set them to text-secondary for a cohesive look. */
+h1, h2, h3 {
+  @apply font-bold text-secondary;
+}
+
+h1 {
+  @apply text-4xl tracking-wide text-center mt-6;
+}
+
+h2 {
+  @apply text-3xl mt-4;
+}
+
+h3 {
+  @apply text-2xl mt-3;
+}
+
+p {
+  @apply leading-relaxed my-2;
+}
+
+/* =========================================================
+   Containers & Layout
+   ========================================================= */
+.container {
+  @apply mx-auto px-6 py-8;
+}
+
+/* Main content area (used in .App, etc.) */
+.main-container {
+  @apply container mx-auto px-6 py-8 bg-white shadow-lg rounded-lg mt-4 flex-grow;
+}
+
+/* =========================================================
+   Cards
+   ========================================================= */
+.card {
+  @apply bg-white shadow-md rounded-lg p-6 border border-gray-200;
+}
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+/* 
+  Use your primary color for the main button variant.
+  Base: primary (B41F2B), hover: primary.dark (931A23)
+*/
+.btn {
+  @apply inline-block px-6 py-2 rounded-md shadow-md transition-all duration-300;
+}
+
+.btn-primary {
+  @apply bg-primary text-white hover:bg-primary-dark;
+}
+
+/* 
+  Use your secondary color for the secondary button variant.
+  Base: secondary (2B2B2B), hover: secondary.light (3C3C3C)
+*/
+.btn-secondary {
+  @apply bg-secondary text-white hover:bg-secondary-light;
+}
+
+/* 
+  If you want a special link style (previously text-red-300, etc.),
+  tie it to primary.light for a subtle accent, plus a hover to white or another color.
+*/
+.App-link {
+  @apply text-primary-light hover:text-white transition duration-300;
+}
+
+/* =========================================================
+   Navbar
+   ========================================================= */
+/* 
+  Use your dark primary shade as the navbar background 
+  and make nav-link hover the base primary color for a lighter hover effect.
+*/
+.navbar {
+  @apply bg-primary-dark text-white py-4 shadow-md fixed w-full top-0 z-50 flex justify-between items-center px-6;
+}
+
+.nav-link {
+  @apply px-4 py-2 hover:bg-primary transition duration-300 rounded;
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+/* 
+  Use your base secondary color for the footer background (2B2B2B) 
+  and white text for contrast.
+*/
+.footer {
+  @apply bg-secondary text-white text-center py-4 mt-8 text-sm sm:text-base;
+}
+
+/* =========================================================
+   Tables
+   ========================================================= */
+/* 
+  It's common to keep table headers in a lighter gray for readability, 
+  but you can switch to primary/secondary if you want a brand-colored table.
+*/
+.table {
+  @apply w-full border-collapse mt-4 text-sm;
+}
+
+.table th {
+  @apply bg-gray-200 text-secondary py-2 px-4 text-left;
+}
+
+.table td {
+  @apply border-b border-gray-300 py-2 px-4;
+}
+
+.table tr:hover {
+  @apply bg-gray-100;
+}
+
+/* Scrollable Table for Mobile */
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: auto;
+  }
+}
+
+/* =========================================================
+   Mobile Responsiveness
+   ========================================================= */
+@media (max-width: 768px) {
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  .btn {
+    @apply text-sm px-4 py-2;
+  }
+
+  .container {
+    @apply px-4 py-6;
+  }
+
+  .navbar {
+    @apply flex flex-col items-center py-3;
+  }
+
+  .nav-link {
+    @apply text-lg px-5 py-3 w-full text-center;
+  }
+
+  .card {
+    @apply p-4;
+  }
+
+  .footer {
+    @apply text-sm;
+  }
+}

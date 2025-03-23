@@ -1,0 +1,12 @@
+/* 
+   app.css 
+   After merging with index.css, this can be nearly empty
+   unless you have App-specific overrides.
+   Retain the spinning logo if you want it specifically 
+   for the <App> component's styling, 
+   but we've moved that to index.css for clarity.
+*/
+
+/* If you have unique styling that only the <App> component needs, 
+   keep it here. Otherwise, you can safely remove it or keep it minimal.
+*/
